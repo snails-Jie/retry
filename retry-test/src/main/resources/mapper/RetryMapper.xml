@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.retry.retry.RetryDao">
+    <insert id="add">
+        INSERT INTO t_base_retry(business_id,service_name,service_method,service_method_param,error_message,create_time,update_time)
+        VALUE(#{businessId},#{serviceName},#{serviceMethod},#{serviceMethodParam},#{errorMessage},CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+    </insert>
+
+    <select id="findAll" resultType="io.github.retry.core.entity.RetryEntity">
+        select * from  t_base_retry
+    </select>
+</mapper>
